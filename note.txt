@@ -1,0 +1,6 @@
+1 =>  click placeCall()
+2 =>  placeCall() method will work
+     a. generateToken() method will work
+     b. then it will broadcast to others
+     c. initialize agora
+     d. join room
