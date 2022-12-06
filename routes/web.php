@@ -28,6 +28,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/agora-chat2', [AgoraVideoController::class, 'index2']);
     Route::post('/agora/token2',  [AgoraVideoController::class, 'token2']);
     Route::post('/agora/call-user2',  [AgoraVideoController::class, 'callUser2']);
+
+
+    // group
+    Route::get('/agora-chat3', [AgoraVideoController::class, 'index3']);
+    Route::post('/agora/token3',  [AgoraVideoController::class, 'token3']);
+    Route::post('/agora/call-user3',  [AgoraVideoController::class, 'callUser3']);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

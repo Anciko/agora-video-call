@@ -5467,8 +5467,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.prev = 0;
                 // channelName = the caller's and the callee's id. you can use anything. tho.
-                // const channelName = `${this.authuser}_${calleeName}`;
-                channelName = "101";
+                channelName = "".concat(_this2.authuser, "_").concat(calleeName); ////////////////////////channel name/////////////
+                // const channelName = `101`;
                 _context.next = 4;
                 return _this2.generateToken(channelName);
               case 4:
@@ -5765,7 +5765,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "6c07a0a51a0f074bcdf0",
+  key: "18501da3407425319e14",
   cluster: "us2",
   forceTLS: true
 });

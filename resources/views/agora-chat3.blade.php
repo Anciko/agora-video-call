@@ -14,6 +14,8 @@
             border: 1px solid #099dfd;
             position: relative;
             box-shadow: 1px 1px 11px #9e9e9e;
+            display: flex;
+            flex-wrap: wrap;
         }
         #local-video {
             width: 30%;
@@ -133,9 +135,9 @@
                 data
             }) => {
                 console.log("Listening data.............", data);
-                if (parseInt(data.userToCall) === parseInt(authuserid)) {
-                    const callerIndex = onlineUsers.findIndex((user) => user.id === data.from);
-                    incomingCaller = onlineUsers[callerIndex]["name"];
+                // if (parseInt(data.userToCall) === parseInt(authuserid)) {
+                    // const callerIndex = onlineUsers.findIndex((user) => user.id === data.from);
+                    // incomingCaller = onlineUsers[callerIndex]["name"];
                     incomingCall = true;
                     // the channel that was sent over to the user being called is what
                     // the receiver will use to join the call when accepting the call.
@@ -144,7 +146,7 @@
                         document.getElementById('incomingCallContainer').innerHTML += `<div class="row my-5">
                                         <div class="col-12">
                                             <p>
-                                                Incoming Call From <strong>${incomingCaller}</strong>
+                                                Incoming Call From <strong>One for All</strong>
                                             </p>
                                             <div class="btn-group" role="group">
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="declineCall()">
@@ -157,7 +159,7 @@
                                         </div>
                                     </div>`;
                     }
-                }
+                // }
             });
         }
         // to show online offline status
@@ -173,11 +175,11 @@
         async function placeCall(id, calleeName) {
             try {
                 // channelName = the caller's and the callee's id. you can use anything. tho.
-                const channelName = `${authuser}_${calleeName}`; ////////////////////////channel name/////////////
+                const channelName = `test`; ////////////////////////channel name/////////////
                 // const channelName = `101`;
                 const tokenRes = await generateToken(channelName);
                 // Broadcasts a call event to the callee and also gets back the token
-                await axios.post("/agora/call-user2", {
+                await axios.post("/agora/call-user3", {
                     user_to_call: id,
                     username: authuser,
                     channel_name: channelName,
@@ -206,7 +208,7 @@
         }
 
         function generateToken(channelName) {
-            return axios.post("/agora/token2", {
+            return axios.post("/agora/token3", {
                 channelName,
             });
         }
